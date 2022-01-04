@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+<head>
+  {% block head%} {% load static %}
+  <link rel="stylesheet" href="{% static 'css/posts.css' %}" />
+  <title>{% block title %} homepage {% endblock %}</title>
+  {% endblock %}
+</head>
+{% block content %} {% for post in posts %}
+<div class="post">
+  <h1>{{post.name}}</h1>
+  <p>User: {{post.user}}</p>
+  <p>{{post.content}}</p>
+</div>
+{% endfor %} {% endblock %}

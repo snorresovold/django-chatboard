@@ -1,0 +1,28 @@
+<html>
+  <!-- this file is used as a base file that others can extend from -->
+  <head>
+    {% block head %} {% endblock %} {% load static%}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+    <title>{% block title %} The space {% endblock %}</title>
+  </head>
+
+  <body>
+    {% if user.is_authenticated %}
+    <p>Welcome {{ user.username }} !!!</p>
+    <div class="navbar">
+      <a href="/">home</a>
+      <a href="/create/">post something</a>
+    </div>
+    <div id="content" name="content">{% block content %} {% endblock %}</div>
+    {% else %}
+    <h1 class="not-logged-in-title">It seems you aren't logged in</h1>
+    <div class="not-logged-in">
+      <a href="/login">Click here to log in</a>
+    </div>
+    {% endif %}
+  </body>
+</html>
