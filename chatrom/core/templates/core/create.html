@@ -1,15 +1,15 @@
 {% extends 'core/base.html' %} {%block head %} {% load static %}
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/create.css' %}" />
-{% endblock %} {% block title %} Create New List {% endblock %} {% block content %}
+{% endblock %} {% block title %} Create new post {% endblock %} {% block content %}
 <!-- This is the form used for posting posts -->
 <div class="container">
-  <h1>post something</h1>
+  <h1>Post something</h1>
   <form method="POST" action="/create/">
     {% csrf_token %}
     <!-- !DO NOT REMOVE csrf_token because of security vulnerabilities -->
     {{form.as_p}}
-    <button type="submit" , name="save">Create New</button>
+    <button type="submit" , name="save">Create new post</button>
   </form>
 </div>
 {% endblock %}
