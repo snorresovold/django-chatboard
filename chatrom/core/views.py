@@ -4,7 +4,7 @@ from .forms import CreateNewPost
 
 # Create your views here.
 def home(request):
-    return render(request, "core/home.html", {"posts":Post.objects.all()})
+    return render(request, "core/home.html", {"posts":Post.objects.all().reverse})
 
 def create(request):
     if request.method == "POST":
